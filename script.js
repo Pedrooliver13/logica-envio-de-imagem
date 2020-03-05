@@ -70,6 +70,8 @@ const PhotosUpload = {
 
     PhotosUpload.files.splice(index , 1) 
     //splice = 1º parâmetro: quando encontrar o que eu pedi; 2º parâmetro: quantos ele vai deletar quando encontrar
+    PhotosUpload.input.files = PhotosUpload.getAllfiles()// roda a função novamente para atualizar os filesList
+    
     photoDiv.remove()//remove no apenas no front-end
   }
 }
