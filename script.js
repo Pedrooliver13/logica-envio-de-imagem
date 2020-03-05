@@ -40,22 +40,22 @@ const PhotosUpload = {
   },
   getAllFiles(){
     const dataTransfer = ClipBoardEvent("").clipboardData || new DataTranser() //mozilla || chrome
-    PhotosUpload.files.forEach(file => dataTransfer.items.add(file))
+    PhotosUpload.files.forEach(file => dataTransfer.items.add(file)) // pegando os files e adicionando á variavel(assim é possível deletar)
     
     return dataTransfer.files
   },
   getContainer(image){
     const div = document.CreatedElement('div')
-        div.classList.add('photos')
-    
-        div.onclick = PhotosUpload.removePhoto // assim ele já entende que é para passar o event para o removePhoto
-      
-        div.appendChild(image)
-        div.appendChild()
-    
-        return div
+    div.classList.add('photos')
+
+    div.onclick = PhotosUpload.removePhoto // assim ele já entende que é para passar o event para o removePhoto
+
+    div.appendChild(image)
+    div.appendChild(PhotosUpload.removeButton())
+
+    return div
   },
-  removeButton{
+  removeButton(){
     const button = document.createElement('div')
     button.classList.add('material-icons')
     button.innerHTML = 'close'
@@ -64,11 +64,12 @@ const PhotosUpload = {
   },
   removePhoto(event){
     const photoDiv = event.target.parentNode // <div class="photo">
-    const photoArray = Array.from(PhotosUpload.preview.children)
+    const photoArray = Array.from(PhotosUpload.preview.children) // transformando em array para pode usar o indexOf
 
     const index = photosArray.indexOf(photoDiv)
 
-    PhotosUpload.files.splice(index , 1)
-    photoDiv.remove()
+    PhotosUpload.files.splice(index , 1) 
+    //splice = 1º parâmetro: quando encontrar o que eu pedi; 2º parâmetro: quantos ele vai deletar quando encontrar
+    photoDiv.remove()//remove no apenas no front-end
   }
 }
