@@ -40,7 +40,7 @@ const PhotosUpload = {
     
     const photoDiv = []
     preview.childNodes.forEach(item =>{//pegando os filhos do container (<div id="photos-preview">) todos os filhos são as fotos
-      if(item.classList && item.classList.value == "photos")
+      if(item.classList && item.classList.value == "photo")
         photoDiv.push(item)
     })
     
