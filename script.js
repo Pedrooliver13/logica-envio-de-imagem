@@ -58,6 +58,8 @@ const PhotosUpload = {
     const dataTransfer = ClipBoardEvent("").clipboardData || new DataTranser() //mozilla || chrome
     PhotosUpload.files.forEach(file => dataTransfer.items.add(file)) // pegando os files e adicionando á variavel(assim é possível deletar)
     
+    //pega os items do files e passa para o dataTransfer
+    //que vai passar para o PhotosUpload.input mais tarde
     return dataTransfer.files
   },
   getContainer(image){
