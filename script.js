@@ -12,6 +12,7 @@ const PhotosUpload = {
     //pegando fotos(image) com input e adicionamos a uma div que vai entrar em outra div
     Array.from(fileList).forEach(file =>{
       const reader = new FileReader()
+      PhotosUpload.files.push()
       
       reader.onload = ()=>{//onload == espera ficar pronto
         const image = new Image()
