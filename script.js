@@ -88,3 +88,4 @@ const PhotosUpload = {
 
     return photoDiv.remove();
   }
+}
